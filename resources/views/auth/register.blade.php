@@ -23,6 +23,9 @@
         <form action="{{ url('register') }}" method="POST">
             @csrf
             <div class="input-group">
+                <input type="text" name="username" id="username" placeholder="Username" value="{{ old('username') }}" required>
+            </div>
+            <div class="input-group">
                 <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required>
             </div>
 

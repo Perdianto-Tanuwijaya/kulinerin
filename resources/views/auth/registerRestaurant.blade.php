@@ -10,11 +10,6 @@
 </head>
 <body>
 @extends('toastr.message')
-<!-- @if(session('success'))
-    <script>
-        toastr.success('{{ session('success') }}');
-    </script>
-@endif -->
 <div class="container">
     <!-- Logo is placed outside the login form box -->
     <div class="logo-container">
@@ -33,22 +28,6 @@
 
             <div class="input-group">
                 <input type="text" name="restaurantName" id="restaurantName" placeholder="Restaurant Name" value="{{ old('restaurantName') }}" required>
-            </div>
-
-            <div class="input-group">
-                <input type="text" name="restaurantPhoneNumber" id="restaurantPhoneNumber" placeholder="Phone Number" value="{{ old('restaurantPhoneNumber') }}" required>
-            </div>
-
-            <div class="input-group">
-                <input type="text" name="restaurantLocation" id="restaurantLocation" placeholder="Address" value="{{ old('restaurantLocation') }}" required>
-            </div>
-
-            <div class="input-group">
-                <input type="text" name="restaurantDescription" id="restaurantDescription" placeholder="Description" value="{{ old('restaurantDescription') }}" required>
-            </div>
-
-            <div class="input-group">
-                <input type="text" name="restaurantCity" id="restaurantCity" placeholder="City" value="{{ old('restaurantCity') }}" required>
             </div>
 
             <div class="input-group">

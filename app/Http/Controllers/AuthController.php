@@ -11,6 +11,7 @@ use Flasher\Toastr\Prime\ToastrInterface;
 use Laravel\Socialite\Facades\Socialite;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+// use App\Models\Restaurant;
 
 class AuthController extends Controller
 {
@@ -53,12 +54,14 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email|unique:users',
+            'username'=>'unique:users',
             'password' => 'required|alpha_num|min:8|required_with:confirmation_password|same:confirmation_password',
             'confirmation_password' => 'required',
         ]);
 
         $user = new User();
         $user->email = $request->email;
+        $user->username=$request->username;
         $user->password = bcrypt($request->password);
         $user->role = 1;
         $user->save();
@@ -88,14 +91,14 @@ class AuthController extends Controller
             Auth::login($user);
 
             if ($user->role == 1) {
-                return redirect()->route('customerDashboard', compact('user'))->withSuccess('Login Success');
+                return redirect()->route('customerDashboard')->withSuccess('Login Success');
                 // ->withSuccess('Login Success');
-            } else if ($user->role == 2) {
-                // toastr()->success('Login Success');
-                return redirect()->route('adminDashboard', compact('user'))->withSuccess('Login Success');
             } else if ($user->role == 3) {
                 // toastr()->success('Login Success');
-                return redirect()->route('restaurantDashboard', compact('user'))->withSuccess('Login Success');
+                return redirect()->route('adminDashboard')->withSuccess('Login Success');
+            } else if ($user->role == 2) {
+                // toastr()->success('Login Success');
+                return redirect()->route('restaurantDashboard')->withSuccess('Login Success');
             }
         } else {
             // If authentication fails, redirect back with an error message
@@ -106,7 +109,10 @@ class AuthController extends Controller
     }
     public function customerDashboard()
     {
-        return view('dashboard.customerDashboard');
+        $restaurants = Restaurant::inRandomOrder()->take(3)->get();
+        $restaurantsDine = Restaurant::inRandomOrder()->take(3)->get();
+        $restaurantsHoliday = Restaurant::inRandomOrder()->take(3)->get();
+        return view('dashboard.customerDashboard',compact('restaurants', 'restaurantsDine', 'restaurantsHoliday'));
     }
     public function adminDashboard()
     {
@@ -114,6 +120,7 @@ class AuthController extends Controller
     }
     public function restaurantDashboard()
     {
+
         return view('dashboard.restaurantDashboard');
     }
 
@@ -127,10 +134,6 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email|unique:users',
             'restaurantName' => 'required',
-            'restaurantPhoneNumber' => 'required',
-            'restaurantLocation' => 'required',
-            'restaurantDescription' => 'required',
-            'restaurantCity' => 'required',
             'password' => 'required|alpha_num|min:8|required_with:confirmation_password|same:confirmation_password',
             'confirmation_password' => 'required',
         ]);
@@ -138,12 +141,8 @@ class AuthController extends Controller
         $restaurant = new User();
         $restaurant->email = $request->email;
         $restaurant->restaurantName = $request->restaurantName;
-        $restaurant->restaurantPhoneNumber = $request->restaurantPhoneNumber;
-        $restaurant->restaurantLocation = $request->restaurantLocation;
-        $restaurant->restaurantDescription = $request->restaurantDescription;
-        $restaurant->restaurantCity = $request->restaurantCity;
         $restaurant->password = bcrypt($request->password);
-        $restaurant->role = 3;
+        $restaurant->role = 2;
         $restaurant->save();
 
         return redirect('/login')->with('success', 'Your account has been created successfully!');

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RestaurantController;
 use Illuminate\Http\Request;
 
 /*
@@ -19,6 +20,13 @@ use Illuminate\Http\Request;
 
 Route::get('/google/redirect', [AuthController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('google.callback');
+
+Route::get('/search', [RestaurantController::class, 'search'])->name('search');
+// Route::get('/search', [RestaurantController::class, 'search'])->name('search');
+Route::post('search', [RestaurantController::class, 'search']);
+
+
+
 
 Route::middleware(['guest'])->group(function () {
 
@@ -38,34 +46,28 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/registerrestaurant', [AuthController::class, 'showRegisterRestaurantForm'])->name('registerRestaurant');
 
     Route::post('registerrestaurant', [AuthController::class, 'registerestaurant']);
+    
+    Route::post('logout', [AuthController::class, 'logout']);
 });
 
 Route::middleware(['customer'])->group(function () {
 
     Route::get('/dashboardCustomer', [AuthController::class, 'customerDashboard'])->name('customerDashboard');
+    Route::post('/dashboardCustomer', [RestaurantController::class, 'showRestaurants']);
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::post('logout', [AuthController::class, 'logout']);
 });
 
 Route::middleware(['admin'])->group(function () {
 
     Route::get('/dashboardAdmin', [AuthController::class, 'adminDashboard'])->name('adminDashboard');
+    Route::get('/logoutAdmin', [AuthController::class, 'logout'])->name('logout');
+    
 });
 
 Route::middleware(['restaurant'])->group(function () {
 
-    Route::get('/dashboardRestaurant', [AuthController::class, 'restaurantDashboard'])->name('restaurantDasboard');
+    Route::get('/dashboardRestaurant', [AuthController::class, 'restaurantDashboard'])->name('restaurantDashboard');
+    Route::get('/logoutRestaurant', [AuthController::class, 'logout'])->name('logout');
 });
-
-// Route::post('dashboardCustomer', [AuthController::class, 'register']);
-
-// Route::middleware('auth')->get('/dashboard', function () {
-//     return view('dashboard.customerDashboard');
-// });
-// Route::post('dashboard', [AuthController::class, 'login']);
-
-// Route::get('/', function () {
-//     return view('dashboard');
-// });

@@ -11,22 +11,22 @@
 @extends('master.masterCustomer')
 @section ('content')
     <main class="main-content">
-        <div class="greeting">Hello, user</div>
+        <div class="greeting">Hello, {{ Auth::user()->username }}</div>
 
         <!-- Updated Advertisement Section -->
         <div class="ad-container">
             <div class="ad-slide active">
-                <img src="{{ asset('asset/testAd1.png') }}" 
+                <img src="{{ asset('asset/imageRestaurant6.webp') }}" 
                      alt="Special Offer" 
                      class="ad-image">
             </div>
             <div class="ad-slide">
-                <img src="{{ asset('asset/testAd2.png') }}" 
+                <img src="{{ asset('asset/imageRestaurant4.jpg') }}" 
                      alt="New Restaurant" 
                      class="ad-image">
             </div>
             <div class="ad-slide">
-                <img src="{{ asset('asset/testAd3.png') }}" 
+                <img src="{{ asset('asset/imageRestaurant3.avif') }}" 
                      alt="Free Delivery" 
                      class="ad-image">
             </div>
@@ -46,93 +46,53 @@
         <section>
             <h2 class="section-title">Recomendation Restaurant For You</h2>
             <div class="restaurant-grid">
+            @foreach ($restaurants as $restaurant)
                 <div class="restaurant-card">
                     <div class="restaurant-image">
-                    <img src="{{ asset('asset/imageRestaurant1.png') }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
+                        <!-- Use asset() to generate the correct URL for the image -->
+                        <img src="{{ asset($restaurant->restaurantImage) }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <!-- <div class="restaurant-image" style="background-image: url('{{ asset('asset/imageRestaurant1.png') }}');">
-                    </div> -->
                     <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
+                        <div class="restaurant-name">{{ $restaurant->restaurantName }}</div>
+                        <div class="restaurant-location">{{ $restaurant->restaurantCity }}</div>
                     </div>
                 </div>
-                <div class="restaurant-card">
-                    <div class="restaurant-image">
-                    <img src="{{ asset('asset/imageRestaurant2.png') }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <!-- <div class="restaurant-image" style="background-image: url('{{ asset('asset/imageRestaurant1.png') }}');">
-                    </div> -->
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <div class="restaurant-image">
-                    <img src="{{ asset('asset/imageRestaurant1.png') }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <!-- <div class="restaurant-image" style="background-image: url('{{ asset('asset/imageRestaurant1.png') }}');">
-                    </div> -->
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
-                    </div>
-                </div>
+            @endforeach
+
             </div>
         </section>
-
         <section>
             <h2 class="section-title">Dine, Save & Reserve</h2>
             <div class="restaurant-grid">
+            @foreach ($restaurantsDine as $restaurant)
                 <div class="restaurant-card">
-                    <div class="restaurant-image"></div>
+                    <div class="restaurant-image">
+                        <!-- Use asset() to generate the correct URL for the image -->
+                        <img src="{{ asset($restaurant->restaurantImage) }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
+                        <div class="restaurant-name">{{ $restaurant->restaurantName }}</div>
+                        <div class="restaurant-location">{{ $restaurant->restaurantCity }}</div>
                     </div>
                 </div>
-                <div class="restaurant-card">
-                    <div class="restaurant-image"></div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <div class="restaurant-image"></div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
-                    </div>
-                </div>
+            @endforeach
             </div>
         </section>
-
         <section>
             <h2 class="section-title">Holiday Dinner</h2>
             <div class="restaurant-grid">
+            @foreach ($restaurantsHoliday as $restaurant)
                 <div class="restaurant-card">
-                    <div class="restaurant-image"></div>
+                    <div class="restaurant-image">
+                        <!-- Use asset() to generate the correct URL for the image -->
+                        <img src="{{ asset($restaurant->restaurantImage) }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
+                        <div class="restaurant-name">{{ $restaurant->restaurantName }}</div>
+                        <div class="restaurant-location">{{ $restaurant->restaurantCity }}</div>
                     </div>
                 </div>
-                <div class="restaurant-card">
-                    <div class="restaurant-image"></div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
-                    </div>
-                </div>
-                <div class="restaurant-card">
-                    <div class="restaurant-image"></div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">Lawry's The Prime Rib Jakarta</div>
-                        <div class="restaurant-location">Kebayoran baru</div>
-                    </div>
-                </div>
+            @endforeach
             </div>
         </section>
     </main>
