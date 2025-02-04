@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Customer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
-
+<style>
+    .card{
+        cursor: pointer;
+    }
+    .line-break{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
 <body>
 @extends('master.masterCustomer')
 @section ('content')
@@ -44,55 +56,68 @@
         </div>
 
         <section>
-            <h2 class="section-title">Recomendation Restaurant For You</h2>
-            <div class="restaurant-grid">
-            @foreach ($restaurants as $restaurant)
-                <div class="restaurant-card">
-                    <div class="restaurant-image">
-                        <!-- Use asset() to generate the correct URL for the image -->
-                        <img src="{{ asset($restaurant->restaurantImage) }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">{{ $restaurant->restaurantName }}</div>
-                        <div class="restaurant-location">{{ $restaurant->restaurantCity }}</div>
-                    </div>
+            <h2 class="section-title">Recommendation Restaurant For You</h2>
+            <div class="container" style="max-width: 100%; padding-left: 0rem;padding-right: 0rem">
+                <div class="row">
+                    @foreach ($restaurants as $restaurant)
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card" onclick="window.location='{{route('indexRestaurants', $restaurant->id)}}'">
+                                <div class="restaurant-image">
+                                    <!-- Use asset() to generate the correct URL for the image -->
+                                    <img src="{{ asset($restaurant->firstImage) }}" class="card-img-top" alt="Restaurant Name" style="height: 200px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title line-break">{{ $restaurant->restaurantName }}</h5>
+                                    <p class="card-text">{{ $restaurant->restaurantCity }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
-
             </div>
         </section>
+
         <section>
             <h2 class="section-title">Dine, Save & Reserve</h2>
-            <div class="restaurant-grid">
-            @foreach ($restaurantsDine as $restaurant)
-                <div class="restaurant-card">
-                    <div class="restaurant-image">
-                        <!-- Use asset() to generate the correct URL for the image -->
-                        <img src="{{ asset($restaurant->restaurantImage) }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">{{ $restaurant->restaurantName }}</div>
-                        <div class="restaurant-location">{{ $restaurant->restaurantCity }}</div>
-                    </div>
+            <div class="container" style="max-width: 100%; padding-left: 0rem;padding-right: 0rem">
+                <div class="row">
+                    @foreach ($restaurantsDine as $restaurant)
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card" onclick="window.location='{{route('indexRestaurants', $restaurant->id)}}'">
+                                <div class="restaurant-image">
+                                    <!-- Use asset() to generate the correct URL for the image -->
+                                    <img src="{{ asset($restaurant->firstImage) }}" class="card-img-top" alt="Restaurant Name" style="height: 200px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title line-break">{{ $restaurant->restaurantName }}</h5>
+                                    <p class="card-text">{{ $restaurant->restaurantCity }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
             </div>
         </section>
+
         <section>
-            <h2 class="section-title">Holiday Dinner</h2>
-            <div class="restaurant-grid">
-            @foreach ($restaurantsHoliday as $restaurant)
-                <div class="restaurant-card">
-                    <div class="restaurant-image">
-                        <!-- Use asset() to generate the correct URL for the image -->
-                        <img src="{{ asset($restaurant->restaurantImage) }}" alt="Restaurant Name" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">{{ $restaurant->restaurantName }}</div>
-                        <div class="restaurant-location">{{ $restaurant->restaurantCity }}</div>
-                    </div>
+            <h2 class="section-title">Dine, Save & Reserve</h2>
+            <div class="container" style="max-width: 100%; padding-left: 0rem;padding-right: 0rem">
+                <div class="row">
+                    @foreach ($restaurantsHoliday as $restaurant)
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card" onclick="window.location='{{route('indexRestaurants', $restaurant->id)}}'">
+                                <div class="restaurant-image">
+                                    <!-- Use asset() to generate the correct URL for the image -->
+                                    <img src="{{ asset($restaurant->firstImage) }}" class="card-img-top" alt="Restaurant Name" style="height: 200px; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title line-break">{{ $restaurant->restaurantName }}</h5>
+                                    <p class="card-text">{{ $restaurant->restaurantCity }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
             </div>
         </section>
     </main>

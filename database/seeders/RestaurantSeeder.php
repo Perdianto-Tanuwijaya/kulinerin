@@ -20,103 +20,102 @@ class RestaurantSeeder extends Seeder
                 'id' => 1,
                 'restaurantName' => "Lawry's The Prime Rib Jakarta",
                 'restaurantPhoneNumber' => "0812666666001",
-                'restaurantCity' => "Jakarta",
-                'restaurantAddress' => "Jalan Jendral Sudirman No. 33, Jakarta, Indonesia",
+                'restaurantCity' => "South Jakarta",
+                'restaurantAddress' => "Jl. Bumi No.15, RT.3/RW.2, Gunung, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12120",
                 'restaurantDescription' => "Lawry's The Prime Rib Jakarta offers a fine dining experience with signature prime rib served with traditional sides, complemented by an exquisite selection of wines.",
-                'restaurantStyle' => "Fine Dining, Steakhouse",
-                'restaurantImage' => "asset/imageRestaurant1.png"
+                'restaurantStyle' => "Western",
+                'restaurantImage' => "asset/restaurant/lawry.jpg, asset/restaurant/lawry1.jpg, asset/restaurant/lawry1.jpg"
             ],
             [
                 'id' => 2,
-                'restaurantName' => "Bubur Ayam Cikini",
+                'restaurantName' => "Anigre - Sheraton Grand Jakarta Gandaria City Hotel",
                 'restaurantPhoneNumber' => "081234567890",
-                'restaurantCity' => "Jakarta",
-                'restaurantAddress' => "Jl. Cikini Raya No. 10, Jakarta Pusat, Indonesia",
-                'restaurantDescription' => "Bubur Ayam Cikini serves the most flavorful chicken porridge, a beloved street food in Jakarta, perfect for a quick and delicious meal.",
-                'restaurantStyle' => "Casual Dining, Indonesian",
-                'restaurantImage' => "asset/imageRestaurant2.png"
+                'restaurantCity' => "South Jakarta",
+                'restaurantAddress' => "l. Sultan Iskandar Muda, Kby. Lama Utara, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12240",
+                'restaurantDescription' => "Sheraton Grand Jakarta Gandaria City Hotel offers a welcoming all-day buffet restaurant with delicious cuisine, as well as a stylish lobby bar.",
+                'restaurantStyle' => "Western",
+                'restaurantImage' => "asset/restaurant/anigre.jpg, asset/restaurant/anigre1.jpg, asset/restaurant/anigre2.jpg"
             ],
             [
-                'id' => 3,
-                'restaurantName' => "Nasi Goreng Kambing Kebon Sirih",
+                'id' => 9,
+                'restaurantName' => "Justus Steakhouse Alam Sutera",
                 'restaurantPhoneNumber' => "0812666666002",
-                'restaurantCity' => "Jakarta",
-                'restaurantAddress' => "Kebon Sirih, Jakarta, Indonesia",
-                'restaurantDescription' => "A legendary spot for Nasi Goreng Kambing, this restaurant serves one of the best goat fried rice dishes in Jakarta, rich in spices and flavor.",
-                'restaurantStyle' => "Casual Dining, Indonesian",
-                'restaurantImage' => "asset/imageRestaurant3.avif"
+                'restaurantCity' => "South Tangerang",
+                'restaurantAddress' => "Jl. Alam Sutera Town Center, Jl. Alam Utama Blok 10J No.6, Pakulonan, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15325",
+                'restaurantDescription' => "Justus Group is home to several restaurant brands, each offering the finest quality and specially curated dishes. From burgers and steaks to authentic Indonesian cuisine rich in distinctive flavors and a blend of traditional spices, Justus Group ensures an exceptional dining experience for all tastes",
+                'restaurantStyle' => "Western",
+                'restaurantImage' => "asset/restaurant/justus.jpg, asset/restaurant/justus1.jpg, asset/restaurant/justus2.jpg"
             ],
-            [
-                'id' => 4,
-                'restaurantName' => "Sushi Tei",
-                'restaurantPhoneNumber' => "0812666666003",
-                'restaurantCity' => "Jakarta",
-                'restaurantAddress' => "Plaza Indonesia, Jakarta, Indonesia",
-                'restaurantDescription' => "Sushi Tei offers fresh and authentic Japanese sushi, sashimi, and a wide variety of Japanese dishes with excellent service.",
-                'restaurantStyle' => "Casual Dining, Japanese",
-                'restaurantImage' => "asset/imageRestaurant4.jpg"
-            ],
+            // [
+            //     'id' => 4,
+            //     'restaurantName' => "Sushi Tei",
+            //     'restaurantPhoneNumber' => "0812666666003",
+            //     'restaurantCity' => "Jakarta",
+            //     'restaurantAddress' => "Plaza Indonesia, Jakarta, Indonesia",
+            //     'restaurantDescription' => "Sushi Tei offers fresh and authentic Japanese sushi, sashimi, and a wide variety of Japanese dishes with excellent service.",
+            //     'restaurantStyle' => "Casual Dining, Japanese",
+            //     'restaurantImage' => "asset/imageRestaurant4.jpg"
+            // ],
             [
                 'id' => 5,
-                'restaurantName' => "Cafe D'Liquid",
+                'restaurantName' => "BLANCO Par Mandif",
                 'restaurantPhoneNumber' => "0812666666004",
-                'restaurantCity' => "Bandung",
-                'restaurantAddress' => "Jl. Dago No. 45, Bandung, Indonesia",
-                'restaurantDescription' => "Cafe D'Liquid is known for its cozy atmosphere and great variety of coffees, teas, and light snacks, perfect for relaxation and small gatherings.",
-                'restaurantStyle' => "Cafe, Coffee Shop",
-                'restaurantImage' => "asset/imageRestaurant5.jpg"
+                'restaurantCity' => "Kabupaten Gianyar",
+                'restaurantAddress' => "Kompleks Museum Blanco, Jl. Raya Tjampuhan, Ubud, Sayan, Kec. Gianyar, Kabupaten Gianyar, Bali 80571",
+                'restaurantDescription' => "BLANCO Par Mandif is an exclusive fine dining restaurant located in Ubud, Bali, offering a sophisticated culinary experience that blends traditional Indonesian flavors with modern techniques.",
+                'restaurantStyle' => "Asian",
+                'restaurantImage' => "asset/restaurant/blanco.jpg, asset/restaurant/blanco1.jpg, asset/restaurant/blanco.jpeg"
             ],
             [
                 'id' => 6,
-                'restaurantName' => "Seafood 99",
+                'restaurantName' => "The 1945 Restaurant",
                 'restaurantPhoneNumber' => "0812666666005",
-                'restaurantCity' => "Surabaya",
-                'restaurantAddress' => "Jl. Raya Gubeng No. 88, Surabaya, Indonesia",
-                'restaurantDescription' => "Seafood 99 serves fresh, high-quality seafood dishes with a variety of cooking styles, all prepared with the finest ingredients.",
-                'restaurantStyle' => "Casual Dining, Seafood",
-                'restaurantImage' => "asset/imageRestaurant6.webp"
+                'restaurantCity' => "Central Jakarta",
+                'restaurantAddress' => "Jl. Asia Afrika No.8, Gelora, Kecamatan Tanah Abang, Jakarta, Daerah Khusus Ibukota Jakarta 10270",
+                'restaurantDescription' => "The 1945 Restaurant is a luxurious dining destination located at the Fairmont Jakarta, offering a sophisticated blend of classic and contemporary Indonesian cuisine. Inspired by Indonesia’s rich history and heritage, the restaurant's name pays homage to the year of Indonesia's independence, creating a connection to the nation's past while celebrating its culinary diversity.",
+                'restaurantStyle' => "Asian",
+                'restaurantImage' => "asset/restaurant/1945restaurant.jpg, asset/restaurant/1945restaurant1.jpg, asset/restaurant/1945restaurant2.jpg"
             ],
             [
                 'id' => 7,
                 'restaurantName' => "The Grand Hyatt Jakarta",
                 'restaurantPhoneNumber' => "0812666666006",
-                'restaurantCity' => "Jakarta",
-                'restaurantAddress' => "Jl. Thamrin No. 28, Jakarta, Indonesia",
+                'restaurantCity' => "Central Jakarta",
+                'restaurantAddress' => "Jl. M.H. Thamrin No.Kav. 28-30, Gondangdia, Kec. Menteng, Jakarta, Daerah Khusus Ibukota Jakarta 10350",
                 'restaurantDescription' => "The Grand Hyatt Jakarta offers a luxurious dining experience with a range of fine cuisine including Indonesian, Chinese, and International options.",
-                'restaurantStyle' => "Fine Dining, International",
-                'restaurantImage' => "asset/imageRestaurant1.png"
+                'restaurantStyle' => "Western",
+                'restaurantImage' => "asset/restaurant/hyat.jpg, asset/restaurant/hyat1.jpg, asset/restaurant/hyat2.jpg"
             ],
             [
                 'id' => 8,
-                'restaurantName' => "Kedai Kopi 89",
+                'restaurantName' => "View Restaurant & Bar",
                 'restaurantPhoneNumber' => "0812666666007",
                 'restaurantCity' => "Yogyakarta",
-                'restaurantAddress' => "Jl. Malioboro No. 89, Yogyakarta, Indonesia",
-                'restaurantDescription' => "Kedai Kopi 89 is a popular coffee shop serving a variety of specialty coffees, homemade cakes, and savory snacks in a laid-back setting.",
-                'restaurantStyle' => "Cafe, Coffee Shop",
-                'restaurantImage' => "asset/imageRestaurant2.png"
+                'restaurantAddress' => "Fairmont Jakarta, Jl. Asia Afrika No.8, Gelora, Kecamatan Tanah Abang, Jakarta, Daerah Khusus Ibukota Jakarta 10270",
+                'restaurantDescription' => "View at Fairmont Jakarta offers an extraordinary dining experience that combines stunning city views with exquisite cuisine. Located on the top floor of the Fairmont Jakarta, this sophisticated restaurant provides panoramic views of the Jakarta skyline, creating an ideal setting for a memorable meal.",
+                'restaurantStyle' => "Bar",
+                'restaurantImage' => "asset/restaurant/view.jpeg, asset/restaurant/view.jpg, asset/restaurant/view1.jpg"
             ],
             [
-                'id' => 9,
-                'restaurantName' => "Taman Santap Rumah Kayu",
+                'id' => 3,
+                'restaurantName' => "Nusa Indonesian Gastronomy",
                 'restaurantPhoneNumber' => "0812666666008",
-                'restaurantCity' => "Bali",
-                'restaurantAddress' => "Jl. Raya Ubud, Bali, Indonesia",
-                'restaurantDescription' => "Taman Santap Rumah Kayu offers a traditional Balinese dining experience, set in a beautiful garden with a range of authentic dishes.",
-                'restaurantStyle' => "Fine Dining, Balinese",
-                'restaurantImage' => "asset/imageRestaurant3.avif"
+                'restaurantCity' => "South Jakarta",
+                'restaurantAddress' => "Jl. Kemang Sel. No.81, Bangka, Kemang, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12730",
+                'restaurantDescription' => "Nusa Indonesian Gastronomy is a distinguished fine dining restaurant in Jakarta, dedicated to showcasing the rich and diverse flavors of Indonesia through a modern culinary lens. The restaurant prides itself on offering a unique gastronomic experience that highlights Indonesia’s vast cultural and regional culinary heritage, with each dish expertly crafted to bring out the authentic taste of the islands.",
+                'restaurantStyle' => "Fine Dining",
+                'restaurantImage' => "asset/restaurant/nusa.jpg, asset/restaurant/nusa1.jpg, asset/restaurant/nusa2.jpg"
             ],
             [
                 'id' => 10,
-                'restaurantName' => "Pasta Viva",
+                'restaurantName' => "Merah Putih Restaurant",
                 'restaurantPhoneNumber' => "0812666666009",
-                'restaurantCity' => "Jakarta",
-                'restaurantAddress' => "Jl. Senopati No. 18, Jakarta, Indonesia",
-                'restaurantDescription' => "Pasta Viva serves freshly made pasta dishes, pizzas, and a selection of Italian wines, bringing the true taste of Italy to Jakarta.",
-                'restaurantStyle' => "Italian, Casual Dining",
-                'restaurantImage' => "asset/imageRestaurant4.jpg"
+                'restaurantCity' => "West Jakarta",
+                'restaurantAddress' => "Jl. Sang Timur No.71 2, RT.12/RW.4, Kb. Jeruk, Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11530",
+                'restaurantDescription' => "Merah Putih Restaurant is an upscale dining destination located in Seminyak, Bali, renowned for its innovative take on traditional Indonesian cuisine. The name Merah Putih, meaning Red and White, is inspired by the colors of Indonesia's national flag, symbolizing the restaurant's dedication to celebrating Indonesia's rich culinary heritage.",
+                'restaurantStyle' => "Asian",
+                'restaurantImage' => "asset/restaurant/merah.jpg, asset/restaurant/merah1.jpg, asset/restaurant/merah2.jpg"
             ]
         ]);
-        
     }
 }

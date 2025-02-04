@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('email')->unique();
-            $table->string('username')->unique()->nullable();
-            $table->enum('role',['1', '2', '3']);
+            $table->string('username')->unique();
+            $table->enum('role', ['1', '2', '3']);
             $table->string('restaurantName')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -5,34 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ asset('asset/kulinerinLogo.png') }}" type="image/png">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/coctail.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <img src="{{ asset('asset/kulinerinLogo.png') }}" alt="Kulinerin Logo" class="logo">
+        <a href="{{ route('customerDashboard') }}">
+            <img src="{{ asset('asset/kulinerinLogo.png') }}" alt="Kulinerin Logo" class="logo">
+        </a>
         <div class="search-container">
-            <form action="{{route('search')}}" method="GET">
-            <input type="text" class="search-bar" placeholder="Search Any Restaurant Here" value="{{ request('search') }}">
+            <form action="{{route('searchRestaurant')}}" method="GET">
+                <div style="display: flex">
+                    <input type="text" name="location" class="location-bar" placeholder="Location" value="{{ request()->query('location') }}">
+                    <input type="text" name="keyword" class="search-bar" placeholder="Search Any Restaurant Here" value="{{ request()->query('keyword') }}">
+                    <input type="submit" style="display: none" />
+                </div>
             </form>
         </div>
         <div class="nav-links">
-            <a href="#" class="nav-link">Dashboard</a>
+            {{-- <a href="#" class="nav-link">History</a> --}}
+            <div class="account-dropdown">
+                <button class="hamburger-btn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/dashboardCustomer" class="nav-link">Dashboard</a>
+                    <a href="#">History</a>
+                    <a href="#">Reedem Reward</a>
+                    {{-- <a href="#">Settings</a>
+                    <a href="#">Help</a> --}}
+                    <a href="{{route('logout')}}">Sign Out</a>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="nav-links">
+            <a href="/dashboardCustomer" class="nav-link">Dashboard</a>
             <a href="#" class="nav-link">History</a>
             <div class="account-dropdown">
                 <button class="account-btn" onclick="toggleDropdown()">
                     Account
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <!-- <path d="M6 9l6 6 6-6"/> -->
                     </svg>
                 </button>
                 <div class="dropdown-content" id="accountDropdown">
+                    <form action="">
+                    <button class="logout-btn" onclick="handleLogout()">Redeem Reward</button>
+                    </form>
                     <form action="{{route('logout')}}">
                     <button class="logout-btn" onclick="handleLogout()">Log Out</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </nav>
     @yield('content')
     <footer class="footer">

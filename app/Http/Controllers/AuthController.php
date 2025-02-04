@@ -25,6 +25,7 @@ class AuthController extends Controller
     {
         $googleUser = Socialite::driver('google')->stateless()->user();
 
+        // dd($googleUser);
         if (!$googleUser || !$googleUser->email) {
             return redirect()->route('login')->withErrors('Failed to retrieve Google account information.');
         }
@@ -32,13 +33,26 @@ class AuthController extends Controller
         $user = User::where('email', $googleUser->email)->first();
 
         if (!$user) {
+            // Get first and last name from Google user
+            $nameParts = explode(' ', $googleUser->name);
+            $firstName = $nameParts[0] ?? '';
+            $lastName = isset($nameParts[1]) ? implode(' ', array_slice($nameParts, 1)) : '';
+            $username = $firstName . ' ' . $lastName;
+            // dd($googleUser->name);
             $user = User::create([
                 'email' => $googleUser->email,
+                'username' => $googleUser->name,
                 'role' => 1,
-                'password' => Hash::make(rand(100000, 999999))
+                'password' => Hash::make(rand(100000, 999999)),
             ]);
+            $user->save();
+            // $user = new User();
+            // $user->email = $googleUser->email;
+            // $user->username = $googleUser->$username;
+            // $user->password = Hash::make(rand(100000, 999999));
+            // $user->role = 1;
+            // $user->save();
         }
-        
 
         Auth::login($user);
 
@@ -54,14 +68,14 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email|unique:users',
-            'username'=>'unique:users',
+            'username' => 'unique:users',
             'password' => 'required|alpha_num|min:8|required_with:confirmation_password|same:confirmation_password',
             'confirmation_password' => 'required',
         ]);
 
         $user = new User();
         $user->email = $request->email;
-        $user->username=$request->username;
+        $user->username = $request->username;
         $user->password = bcrypt($request->password);
         $user->role = 1;
         $user->save();
@@ -106,13 +120,6 @@ class AuthController extends Controller
                 'email' => 'Login Failed Credential Not Match.',
             ])->onlyInput('email');
         }
-    }
-    public function customerDashboard()
-    {
-        $restaurants = Restaurant::inRandomOrder()->take(3)->get();
-        $restaurantsDine = Restaurant::inRandomOrder()->take(3)->get();
-        $restaurantsHoliday = Restaurant::inRandomOrder()->take(3)->get();
-        return view('dashboard.customerDashboard',compact('restaurants', 'restaurantsDine', 'restaurantsHoliday'));
     }
     public function adminDashboard()
     {

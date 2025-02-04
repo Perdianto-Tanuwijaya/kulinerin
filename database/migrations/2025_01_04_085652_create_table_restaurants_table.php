@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('table_restaurants', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->string('tableName');
+            $table->string('tableCapacity');
+            $table->string('isAvailable');
             $table->timestamps();
         });
     }

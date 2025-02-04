@@ -21,6 +21,7 @@
         <h1>Login</h1>
 
         <!-- Login form -->
+        <div>
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="input-group">
@@ -41,6 +42,7 @@
         Sign Up with Google
     </button>
 </form>
+</div>
 
         <div class="signup-link">
             <p>Don't have an account? <a href="/register">Sign up</a></p>

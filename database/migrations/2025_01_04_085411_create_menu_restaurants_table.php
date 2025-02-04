@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('menu_restaurants', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->string('menuName');
+            $table->enum('category', ['Appetizer', 'Main Course', 'Dessert', 'Beverages']);
+            $table->string('menuImage');
+            $table->decimal('menuPrice');
+            $table->string('isAVailable')->default('YES');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
